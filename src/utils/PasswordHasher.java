@@ -15,34 +15,7 @@ public class PasswordHasher {
      * @param password Plain text password
      * @return Hashed password with salt
      */
-    // Old Code: 
-    /* public static String hashPassword(String password) {
-        try {
-            // Generate a random salt
-            SecureRandom random = new SecureRandom();
-            byte[] salt = new byte[16];
-            random.nextBytes(salt);
-            
-            // Hash the password with the salt
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            md.update(salt);
-            byte[] hashedPassword = md.digest(password.getBytes());
-            
-            // Combine salt and hashed password
-            byte[] combined = new byte[salt.length + hashedPassword.length];
-            System.arraycopy(salt, 0, combined, 0, salt.length);
-            System.arraycopy(hashedPassword, 0, combined, salt.length, hashedPassword.length);
-            
-            // Encode as Base64 string
-            return Base64.getEncoder().encodeToString(combined);
-            
-        } catch (NoSuchAlgorithmException e) {
-            System.err.println("Error hashing password: " + e.getMessage());
-            return null;
-        }
-    } */
-
-    // Corrected Code:
+   
     public static String hashPassword(String password) {
         try {
             // Generate a random 16-byte salt
